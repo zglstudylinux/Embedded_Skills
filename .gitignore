@@ -2,6 +2,9 @@
 _render/
 *.png.tmp
 
+# 本地测试目录（用于测试 skills，不入库）
+test/
+
 # 系统/编辑器
 Thumbs.db
 .DS_Store
