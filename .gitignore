@@ -1,0 +1,12 @@
+# 临时渲染产物
+_render/
+*.png.tmp
+
+# 系统/编辑器
+Thumbs.db
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
