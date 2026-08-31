@@ -1,6 +1,7 @@
 ---
 name: schematic-pinmap-analyzer
 description: 分析嵌入式硬件原理图 PDF、原理图截图、图片或导出的电路图，并输出用于嵌入式软件开发的功能引脚文件。适用于需要从原理图中提取电源架构、MCU 型号与资源、时钟/复位/启动/下载调试电路、完整 MCU IO 分配、外设驱动逻辑、输入输出电平、默认状态、驱动方式和写驱动代码前必须确认事项的场景。适合 MCU、Linux、IoT、智能硬件、工业控制、传感器板、电机控制板、BMS、数据记录仪、通信网关等嵌入式项目。
+compatibility: Requires python3 and the Python packages listed in scripts/requirements.txt.
 ---
 
 # 原理图功能引脚分析
