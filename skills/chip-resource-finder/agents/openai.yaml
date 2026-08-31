@@ -1,0 +1,4 @@
+interface:
+  display_name: "芯片资源检索"
+  short_description: "输入芯片型号，联网检索官方 datasheet、参考手册、SDK、例程、开发板和烧录工具等开发资源，生成 HTML 资源包报告。"
+  default_prompt: "我想用 $chip-resource-finder 检索这颗芯片的 datasheet、SDK、例程和烧录调试资料等官方开发资源，请生成 HTML 资源报告："
