@@ -13,3 +13,6 @@ Thumbs.db
 __pycache__/
 *.pyc
 .venv/
+
+# 串口日志抓取产物
+logs/

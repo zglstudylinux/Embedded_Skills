@@ -10,10 +10,11 @@
 | [datasheet-analyzer](skills/datasheet-analyzer/) | 从元器件数据手册 PDF 中抽取带页码来源的芯片参数（引脚、电压、时序、电气特性、I2C 地址等），分析结果写入与 PDF 同目录同名 `.md`；仅信 PDF 内容，缺失参数标注 `NOT SPECIFIED IN DATASHEET` 并给出获取途径 | 阅读数据手册查参数、选型对比、写驱动前收集电气规格 |
 | [chip-resource-finder](skills/chip-resource-finder/) | 根据芯片型号联网检索官方开发资源（datasheet、参考手册、SDK、例程、烧录工具、开发板资料），生成分级别的 HTML 资源报告（硬件/软件/烧录三张表 + 最小下载集 + 风险项） | 拿到一颗新芯片，需要快速找齐官方资料并甄别来源可靠性 |
 | [chip-driver-manual](skills/chip-driver-manual/) | 从 datasheet/参考手册/SDK 示例/寄存器头文件中提取并交叉核验驱动开发事实（协议细节、地址、寄存器表、命令集、时序、初始化序列），支持事实提取、驱动代码生成与驱动审查三类任务 | 读芯片手册写驱动、审查驱动正确性、新片 bring-up |
+| [serial-monitor](skills/serial-monitor/) | 读取开发板串口日志并 AI 排错：先监听后复位抓启动日志、错误/警告/启动标记分析、HEX 原始字节与波特率扫描辅助乱码定位（端口号与波特率须由用户提供） | 固件上板联调看打印、抓启动日志、排查无输出/乱码/报错 |
 
 ## 协作流水线
 
-这几个 skill 可以串成一条「从图纸/型号到驱动」的闭环：
+这几个 skill 可以串成一条「从图纸/型号到驱动再到上板联调」的闭环：
 
 ```text
 chip-resource-finder（找齐官方资料）
@@ -26,6 +27,9 @@ schematic-pinmap-analyzer（解析原理图，输出功能引脚文件）
         │
         ▼
 chip-driver-manual（提取驱动事实 → 生成/审查驱动代码）
+        │
+        ▼
+serial-monitor（上板联调：抓串口日志，AI 分析排错）
 ```
 
 每个 skill 也可独立使用，互不依赖。
