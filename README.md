@@ -11,6 +11,7 @@
 | [chip-resource-finder](skills/chip-resource-finder/) | 根据芯片型号联网检索官方开发资源（datasheet、参考手册、SDK、例程、烧录工具、开发板资料），生成分级别的 HTML 资源报告（硬件/软件/烧录三张表 + 最小下载集 + 风险项） | 拿到一颗新芯片，需要快速找齐官方资料并甄别来源可靠性 |
 | [chip-driver-manual](skills/chip-driver-manual/) | 从 datasheet/参考手册/SDK 示例/寄存器头文件中提取并交叉核验驱动开发事实（协议细节、地址、寄存器表、命令集、时序、初始化序列），支持事实提取、驱动代码生成与驱动审查三类任务 | 读芯片手册写驱动、审查驱动正确性、新片 bring-up |
 | [serial-monitor](skills/serial-monitor/) | 读取开发板串口日志并 AI 排错：先监听后复位抓启动日志、错误/警告/启动标记分析、HEX 原始字节与波特率扫描辅助乱码定位（端口号与波特率须由用户提供） | 固件上板联调看打印、抓启动日志、排查无输出/乱码/报错 |
+| [logic-analyzer](skills/logic-analyzer/) | 驱动 Saleae Logic 2 在线采集数字波形并解码 I2C/SPI/UART/CAN，导出解码 CSV/原始波形；双链路：官方 MCP server（AI 客户端即插即用）与 Python Automation API 脚本 | 固件联调验证总线时序、区分板端与适配器问题、MCP 客户端交互式控制逻辑分析仪 |
 
 ## 协作流水线
 
@@ -30,6 +31,9 @@ chip-driver-manual（提取驱动事实 → 生成/审查驱动代码）
         │
         ▼
 serial-monitor（上板联调：抓串口日志，AI 分析排错）
+        │
+        ▼
+logic-analyzer（信号级验证：逻辑分析仪抓波形解码 I2C/SPI/UART/CAN）
 ```
 
 每个 skill 也可独立使用，互不依赖。
